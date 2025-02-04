@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Projects</title>
+
+  <!-- Optional fade-in effect on load -->
+  <script>
+    window.addEventListener('load', function() {
+      document.documentElement.classList.add('loaded');
+      document.body.classList.add('loaded');
+    });
+  </script>
+
+  <!-- Bootstrap CSS (CDN link) -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+    crossorigin="anonymous"
+  />
+  
+  <!-- Custom CSS (site-wide) -->
+  <link rel="stylesheet" href="../resources/css/style.css" />
+
+  <style>
+    /* If you want to match the home/hobbies nav exactly, 
+       ensure the nav is a flex container with spacing. */
+
+    nav {
+      background-color: #333333; 
+      padding: 10px 40px;   /* Larger side padding to match home page if needed */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav a {
+      margin-right: 20px;   /* slightly bigger gap between links */
+      text-decoration: none;
+      color: #dedede;
+      font-weight: bold;
+    }
+
+    /* For the icon, no float, just let flex handle it */
+    nav img.nav-icon {
+      width: 30px;
+      height: 30px;
+    }
+
+    /* Projects container to ensure spacing */
+    .projects-container {
+      flex: 1;  /* Let this grow to fill space so footer is at bottom */
+      margin: 20px auto;
+      max-width: 1200px; /* Center and limit width if desired */
+    }
+
+    /* Heading styling */
+    .projects-heading {
+      text-align: center;
+      margin: 40px 0 20px;
+      font-size: 2.5rem; 
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Carousel images: 
+       - If you want them to fully fill the container, keep object-fit: cover;
+       - If you prefer seeing the entire image (possibly letterboxed), try object-fit: contain; */
+    .carousel-item img {
+      height: 500px;      /* fixed height for consistent slides */
+      object-fit: cover;  /* or 'contain', or remove this if you prefer auto sizes */
+    }
+
+    .carousel-caption {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    footer {
+      background-color: #333333;
+      text-align: center;
+      color: #dedede;
+      padding: 10px 20px;
+      margin-top: 20px; /* ensure spacing above footer */
+    }
+    footer a {
+      color: #dedede;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="nav-links">
+    <a href="home.html">Home</a>
+    <a href="hobbies.html">Hobbies</a>
+    <a href="projects.html" class="active">Projects</a>
+    <img src="../resources/img/coffee.svg" alt="Icon" class="nav-icon" />
+  </nav>
+
+  <!-- Main Content -->
+  <div class="projects-container">
+    <h1 class="projects-heading">My Projects</h1>
+
+    <!-- Bootstrap Carousel -->
+    <div id="projectsCarousel" class="carousel slide" data-bs-ride="carousel">
+      <!-- Indicators/Dots -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Project 1"></button>
+        <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="1" aria-label="Project 2"></button>
+        <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="2" aria-label="Project 3"></button>
+      </div>
+
+      <!-- Carousel Items/Slides -->
+      <div class="carousel-inner">
+        <!-- Project 1 -->
+        <div class="carousel-item active">
+          <img src="../resources/img/terminal-vg.png" class="d-block w-100" alt="Linux Terminal Video Game">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Terminal Videogame</h5>
+            <p>Like many developers, my first project was a simple 2D terminal video game. 
+                Players explore dungeons, discover items, and fight enemies, with battles often decided by factors of 
+                chance—and how you play your ‘cards’ along the way.</p>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="carousel-item">
+          <img src="../resources/img/aws-picture.png" class="d-block w-100" alt="Cloud Computing and Infrastructure">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>AWS Infrastructure Construction</h5>
+            <p>During my first industry internship, I prototyped and implemented a cloud infrastructure for a startup using AWS. 
+                It included EC2 instances, containerized Python applications, and Kubernetes for orchestration, 
+                providing a scalable environment for rapid development and deployment.
+            </p>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="carousel-item">
+          <img src="../resources/img/web-development.png" class="d-block w-100" alt="Web Development">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Web Development</h5>
+            <p>I’m currently building a website for my brother’s startup. 
+                This personal project has fueled my self-learning in HTML, CSS, and JavaScript, 
+                broadening my front-end development skills.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#projectsCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer with Social Media Links -->
+  <footer>
+    <p>
+      Connect with me on:
+      | <a href="https://instagram.com/asnadnrteows" target="_blank">Instagram</a> |
+      <a href="https://www.linkedin.com/in/andrew-santos-89b77727a" target="_blank">LinkedIn</a> |
+      <a href="https://github.com/asnadnrteows" target="_blank">GitHub</a> |
+    </p>
+  </footer>
+  
+  <!-- Bootstrap JS (CDN link) -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+    crossorigin="anonymous">
+  </script>
+</body>
+</html>
