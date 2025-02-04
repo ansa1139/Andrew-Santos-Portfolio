@@ -1,0 +1,235 @@
+/* style.css */
+
+/* ================================
+   1. GLOBAL STYLES & RESET
+================================ */
+* {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #dedede;
+  
+    /* Dark background + image */
+    background-color: #000000;
+    background-image: url('../img/laptop-computer-mouse-glasses-white-table-night-top-view.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  
+    /* Flex layout to push footer down */
+    display: flex;
+    flex-direction: column;
+  
+    /* Fade-in effect */
+    opacity: 0;
+    transition: opacity 0.4s ease-in;
+  }
+  
+  /* Fade in once loaded */
+  html.loaded, body.loaded {
+    opacity: 1;
+  }
+  
+  /* Global link color (no default blue) */
+  a {
+    color: #dedede;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #ffffff; /* optional: slightly brighter on hover */
+    text-decoration: underline;
+  }
+  
+  /* ================================
+     2. NAVIGATION
+  ================================ */
+  nav {
+    background-color: #333333;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid transparent;
+  }
+  
+  nav a {
+    margin-right: 15px;
+    font-weight: bold;
+  }
+  
+  nav a.active {
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 2px;
+  }
+  
+  nav img.nav-icon {
+    width: 30px;
+    height: 30px;
+  }
+  
+  /* ================================
+     3. MAIN CONTENT (Flex Grow)
+  ================================ */
+  .main-content {
+    flex: 1;
+    position: relative; /* so absolute items inside can be pinned */
+  }
+  
+  /* content-row: 2 columns with space in between */
+  .content-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 40px; /* spacing around content */
+  }
+  
+  /* Left column container with semi-transparent background */
+  .intro-text-box {
+    max-width: 250px; /* narrower column */
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  /* Right column for "Welcome" */
+  .welcome-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* optional fixed width or leave it flexible */
+    width: 300px;
+    text-align: center;
+  }
+  
+  .welcome-box h1 {
+    font-size: 3rem; /* bigger "Welcome" text */
+    margin: 0;
+  }
+  
+  /* ================================
+     4. BOTTOM-CENTER IMAGE
+  ================================ */
+  .bottom-center-container {
+    position: absolute; /* pinned within .main-content, if you want it to overlay the bottom */
+    bottom: 20px;       /* margin from bottom */
+    left: 50%;          /* center horizontally */
+    transform: translateX(-50%); /* shift left by half its width for perfect center */
+  }
+  
+  .profile-pic {
+    width: 110px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #333; /* optional border if you want an edge */
+    background-color: #000; /* if you have any transparency in the image */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6); /* subtle shadow */
+  }
+  
+  /* ================================
+     5. FOOTER
+  ================================ */
+  footer {
+    background-color: #333333;
+    color: #dedede;
+    text-align: center;
+    padding: 10px 20px;
+    position: relative; /* normal in-flow; if pinned, do absolute or fix approach */
+  }
+  
+  /* ================================
+     6. RESPONSIVE TWEAKS
+  ================================ */
+  @media (max-width: 768px) {
+    .content-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .welcome-box {
+      width: 100%;
+      margin-top: 20px;
+      text-align: left; /* or center, as you wish */
+    }
+  
+    .bottom-center-container {
+      bottom: 10px; /* move it up a bit less on small screens */
+    }
+  }
+  
+  /* ================================
+     7. RESUME PAGE ADDITIONS
+  ================================ */
+  /* A semi-transparent container so the text is easier to read. 
+     You can also do this on .resume-section if you prefer. */
+  .resume-container {
+    flex: 1;
+    margin: 20px auto;
+    max-width: 1000px; /* narrower for easier reading */
+    background-color: rgba(0, 0, 0, 0.5); /* dark overlay */
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  /* The main heading on resume page */
+  .resume-heading {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+  }
+  
+  /* Resume sections, if you want them individually translucent instead: 
+     .resume-section {
+       background-color: rgba(0,0,0,0.3);
+       padding: 20px;
+       border-radius: 8px;
+       margin-bottom: 30px;
+     }
+  */
+  .resume-section h2 {
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    font-size: 1.75rem;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+  }
+  
+  .resume-table {
+    width: 100%;
+  }
+  .resume-table th, .resume-table td {
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+    color: #dedede; /* ensure text is visible on dark overlay */
+  }
+  .resume-table th {
+    width: 20%;
+    background-color: rgba(255,255,255,0.1);
+    color: #ccc; /* slightly lighter for labels */
+  }
+  
+  /* For bullet lists in resume sections */
+  ul {
+    margin-left: 20px;
+  }
+  
+  /* Print-friendly approach, optional */
+  @media print {
+    body {
+      background: #fff !important;
+      color: #000 !important;
+    }
+    .resume-container {
+      background-color: #fff !important;
+    }
+  }
+  
